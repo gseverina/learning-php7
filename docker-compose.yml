@@ -5,6 +5,7 @@ web:
   volumes:
     - .:/var/www/html
     - ./dockerconfig/virtualhosts.conf:/etc/apache2/sites-enabled/virtualhosts.conf
+    - ./dockerconfig/app.log:/var/log/app.log
   links:
     - mysql
 

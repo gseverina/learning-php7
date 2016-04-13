@@ -21,7 +21,12 @@ $app->register(
 
 $app->register(
     new Silex\Provider\MonologServiceProvider(),
-    ['monolog.logfile' => __DIR__ . '/../app.log']
+    ['monolog.logfile' => '/var/log/app.log']
 );
 
-print_r($app);
+$app->get('/', function(Application $app) {
+    return $app['twig']->render('home.twig');
+});
+
+
+$app->run();
