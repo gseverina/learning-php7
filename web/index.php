@@ -12,4 +12,9 @@ $app->register(
         __DIR__ . "/../config/$env.json"
     )
 );
-#print_r($app);
+$app->register(
+    new Silex\Provider\TwigServiceProvider(),
+    ['twig.path' => __DIR__ . '/../views']
+);
+print_r($app);
+
