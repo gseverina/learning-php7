@@ -19,3 +19,9 @@ mysql:
     MYSQL_PASSWORD: 123456
     MYSQL_DATABASE: mydb
 
+fe:
+  image: node:onbuild
+  ports:
+    - "8081:80"
+  volumes:
+    - ./fe:/usr/src/app

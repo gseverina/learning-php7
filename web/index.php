@@ -8,6 +8,18 @@ $app = new Application();
 $env = getenv('APP_ENV') ?: 'prod';
 #echo $env;
 
+$app->register(new Silex\Provider\DoctrineServiceProvider(), [
+    'dbs.options' => [
+        [
+            'driver'    => 'pdo_mysql',
+            'host'      => '127.0.0.1',
+            'dbname'    => 'cookbook',
+            'user'      => $app['database']['user'],
+            'password'  => $app['database']['password']
+        ]
+    ]
+]);
+
 $app->register(
     new Igorw\Silex\ConfigServiceProvider(
         __DIR__ . "/../config/$env.json"
